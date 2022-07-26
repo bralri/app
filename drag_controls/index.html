@@ -1,203 +1,102 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>drag_controls</title>
-  <style>
-    * {
-      overflow: hidden;
-    }
-    
-    body {
-      padding: 0;
-      margin: 0;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>test</title>
+    <style>
+        * {
+          overflow: hidden;
+          background-color: whitesmoke;
+        }
+        
+        body {
+          padding: 0;
+          margin: 0;
+        }
+      </style>
 </head>
-
 <body>
-  <main>
 
-    <script src="../js/three.min.js"></script>
-    <script src="../js/DragControls.js"></script>
+    <main>
 
-    <script>
+        <script src="../js/three.min.js"></script>
+        <script src="../js/DragControls.js"></script>
+        <script src="../js/GLTFLoader.js"></script>
 
-      let container;
-			let camera, scene, renderer;
-			let controls, group;
-			let enableSelection = false;
+        <script>
 
-			const objects = [];
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                2000
+            );
+            camera.position.z = 1000;
 
-			const mouse = new THREE.Vector2(), raycaster = new THREE.Raycaster();
+            const renderer = new THREE.WebGLRenderer({
+                alpha: true,
+				antialias: true 
+            });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            document.body.appendChild(renderer.domElement);
 
-			init();
+            renderer.outputEncoding = THREE.sRGBEncoding;
 
-			function init() {
+            window.addEventListener('resize', function() {
+                const width = window.innerWidth;
+                const height = window.innerHeight;
+                renderer.setSize(width, height);
+                camera.aspect = width/height;
+                camera.updateProjectionMatrix();
+            })
 
-				container = document.createElement( 'div' );
-				document.body.appendChild( container );
+            let objectArray = [];
 
-				camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 5000 );
-				camera.position.z = 1000;
+            function init() {
 
-				scene = new THREE.Scene();
-				scene.background = new THREE.Color( 0xf0f0f0 );
+                const ambientLight = new THREE.AmbientLight(0xffffff);
+                scene.add(ambientLight);
 
-				scene.add( new THREE.AmbientLight( 0xFFFFF ) );
+                const loader = new THREE.GLTFLoader();
 
-				// const light = new THREE.SpotLight( 0xffffff, 1.5 );
-				// light.position.set( 0, 500, 2000 );
-				// light.angle = Math.PI / 9;
+                for (let i = 0; i < 5; i++) {
 
-				// light.castShadow = true;
-				// light.shadow.camera.near = 1000;
-				// light.shadow.camera.far = 4000;
-				// light.shadow.mapSize.width = 1024;
-				// light.shadow.mapSize.height = 1024;
+                    loader.load(
+                        '../../gltf/' + i + '.glb',
 
-				// scene.add( light );
+                        function(gltf) {
+                            model = gltf.scene;
 
-				group = new THREE.Group();
-				scene.add( group );
+                            model.position.x = Math.random() * 1000 - 500;
+                            model.position.y = Math.random() * 1000 - 500;
 
-				const geometry = new THREE.BoxGeometry( 40, 40, 40 );
+                            model.rotation.y = Math.random() * 2 * Math.PI;
 
-				for ( let i = 0; i < 10; i ++ ) {
+                            model.scale.set(200, 200, 200);
 
-					const object = new THREE.Mesh( geometry, new THREE.MeshLambertMaterial( { color: Math.random() * 0xffffff } ) );
+                            scene.add(model);
+                            objectArray.push(model);
+                        }
+                    )
+                }
 
-					object.position.x = Math.random() * 1000 - 500;
-					object.position.y = Math.random() * 600 - 300;
-					//object.position.z = Math.random() * 800 - 400;
+                let controls = new THREE.DragControls(objectArray, camera, renderer.domElement)
+            }
 
-					// object.rotation.x = Math.random() * 2 * Math.PI;
-					// object.rotation.y = Math.random() * 2 * Math.PI;
-					// object.rotation.z = Math.random() * 2 * Math.PI;
+            function animate() {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
 
-					// object.scale.x = Math.random() * 2 + 1;
-					// object.scale.y = Math.random() * 2 + 1;
-					// object.scale.z = Math.random() * 2 + 1;
+            init();
+            animate();
 
-					// object.castShadow = true;
-					// object.receiveShadow = true;
+        </script>
 
-					scene.add( object );
-
-					objects.push( object );
-
-				}
-
-				renderer = new THREE.WebGLRenderer( { antialias: true } );
-				renderer.setPixelRatio( window.devicePixelRatio );
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-				// renderer.shadowMap.enabled = true;
-				// renderer.shadowMap.type = THREE.PCFShadowMap;
-
-				container.appendChild( renderer.domElement );
-
-				controls = new THREE.DragControls( [ ... objects ], camera, renderer.domElement );
-				controls.addEventListener( 'drag', render );
-
-				//
-
-				window.addEventListener( 'resize', onWindowResize );
-
-				document.addEventListener( 'click', onClick );
-				window.addEventListener( 'keydown', onKeyDown );
-				window.addEventListener( 'keyup', onKeyUp );
-
-				render();
-
-			}
-
-			function onWindowResize() {
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				renderer.setSize( window.innerWidth, window.innerHeight );
-
-				render();
-
-			}
-
-			function onKeyDown( event ) {
-
-				enableSelection = ( event.keyCode === 16 ) ? true : false;
-
-			}
-
-			function onKeyUp() {
-
-				enableSelection = false;
-
-			}
-
-			function onClick( event ) {
-
-				event.preventDefault();
-
-				if ( enableSelection === true ) {
-
-					const draggableObjects = controls.getObjects();
-					draggableObjects.length = 0;
-
-					mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-					mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-					raycaster.setFromCamera( mouse, camera );
-
-					const intersections = raycaster.intersectObjects( objects, true );
-
-					if ( intersections.length > 0 ) {
-
-						const object = intersections[ 0 ].object;
-
-						if ( group.children.includes( object ) === true ) {
-
-							object.material.emissive.set( 0x000000 );
-							scene.attach( object );
-
-						} else {
-
-							object.material.emissive.set( 0xaaaaaa );
-							group.attach( object );
-
-						}
-
-						controls.transformGroup = true;
-						draggableObjects.push( group );
-
-					}
-
-					if ( group.children.length === 0 ) {
-
-						controls.transformGroup = false;
-						draggableObjects.push( ...objects );
-
-					}
-
-				}
-
-				render();
-
-			}
-
-			function render() {
-
-				renderer.render( scene, camera );
-
-			}
-
-
-    </script>
-
-  </main>
+    </main>
+    
 </body>
-
 </html>
