@@ -7,8 +7,6 @@
 
 a {
     color: #242526;
-    text-decoration: none;
-    list-style: none;
 }
 a:hover {
     color: gray;

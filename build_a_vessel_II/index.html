@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Build a Vessel II | Bryan Ridpath</title>
+    <style>
+        * {
+            overflow: hidden;
+            background-color: whitesmoke;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #242526;
+            z-index: 100;
+            display:block;
+            background-color: transparent;
+		}
+        h4 {
+            background-color: transparent;
+        }
+      </style>
+</head>
+<body>
+
+    <main>
+
+        <script src="../js/three.min.js"></script>
+        <script src="../js/DragControls.js"></script>
+        <script src="../js/GLTFLoader.js"></script>
+
+        <script src="./vessel.js"></script>
+
+        <div id="info">
+            <h4>Click and drag the objects to build your own vessel.</h4>
+        </div>
+
+    </main>
+    
+</body>
+</html>

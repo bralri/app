@@ -25,7 +25,7 @@ function setup() {
 }
 
 function draw() {
-  background(36, 37, 38);
+  background(245, 245, 245);
 
   for (let i = bubbleArray.length - 1; i >= 0; i--) {
     bubbleArray[i].move();
