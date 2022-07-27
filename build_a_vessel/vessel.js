@@ -25,33 +25,29 @@ window.addEventListener('resize', function() {
 })
 
 let modelArray = [];
-let displayArray = [];
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(ambientLight);
 
 const loader = new THREE.GLTFLoader();
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 8; i++) {
 
     loader.load(
-        '../../gltf/' + i + '.glb',
+        '../../gltf/build_a_vessel_1/' + i + '.glb',
 
         function(gltf) {
             model = gltf.scene;
 
             model.position.x = (Math.random() - 0.5) * 7;
-            model.position.y = -1;
+            model.position.y = (Math.random() - 0.5) * 3.5;
 
             model.rotation.y = Math.random() * 2 * Math.PI;
+            
 
             scene.add(model);
             modelArray.push(model);
         }
     )
-}
-
-for (let i = 0; i < 10; i++) {
-
 }
 
 let controls = new THREE.DragControls(modelArray, camera, renderer.domElement);
