@@ -10,7 +10,7 @@ function init() {
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
         75,
-        window.innerWidth / window.innerHeight,
+        width/height,
         0.1,
         2000
     );
@@ -20,7 +20,7 @@ function init() {
         alpha: true,
         antialias: true 
     });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
     document.body.appendChild(renderer.domElement);
     renderer.outputEncoding = THREE.sRGBEncoding;
 
@@ -34,7 +34,7 @@ function init() {
     scene.add(ambientLight);
 
     loader = new THREE.GLTFLoader();
-    for (let i = 0; i < 11; i++) {
+    for (let i = 0; i < 13; i++) {
 
         loader.load(
 
@@ -43,8 +43,9 @@ function init() {
             function(gltf) {
                 model = gltf.scene;
 
-                model.position.x = (Math.random() - 0.5) * 8;
-                model.position.y = (Math.random() - 0.5) * 4;
+                model.position.x = (Math.random() - 0.5) * 7;
+                model.position.y = (Math.random() - 0.5) * 3;
+                model.position.z = (Math.random() - 0.5) * 2;
 
                 model.rotation.y = Math.random() * 4 * Math.PI;
                 
