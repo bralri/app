@@ -30,7 +30,7 @@ const ambientLight = new THREE.AmbientLight(0xffffff);
 scene.add(ambientLight);
 
 const loader = new THREE.GLTFLoader();
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 11; i++) {
 
     loader.load(
         '../../gltf/build_a_vessel_1/' + i + '.glb',
@@ -38,8 +38,8 @@ for (let i = 0; i < 8; i++) {
         function(gltf) {
             model = gltf.scene;
 
-            model.position.x = (Math.random() - 0.5) * 7;
-            model.position.y = (Math.random() - 0.5) * 3.5;
+            model.position.x = (Math.random() - 0.5) * 8;
+            model.position.y = (Math.random() - 0.5) * 4;
 
             model.rotation.y = Math.random() * 2 * Math.PI;
             
