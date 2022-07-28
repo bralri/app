@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="../favicon-32x32.png">
+
+    <title>Build a Vessel | Bryan Ridpath</title>
+    <style>
+        * {
+            overflow: hidden;
+            background-color: whitesmoke;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        
+        body {
+            padding: 0;
+            margin: 0;
+        }
+
+        #info {
+            position: absolute;
+            top: 10px;
+            width: 100%;
+            text-align: center;
+            color: #242526;
+            z-index: 100;
+            display:block;
+            background-color: transparent;
+		}
+        h4 {
+            background-color: transparent;
+        }
+      </style>
+</head>
+<body>
+
+    <main>
+
+        <script src="../js/three.min.js"></script>
+        <script src="../js/DragControls.js"></script>
+        <script src="../js/GLTFLoader.js"></script>
+
+        <script src="./vessel.js"></script>
+
+        <div id="info">
+            <h4>
+                Click+drag the parts to build your own vessels. <BR>
+                Right+click to save your design. F5 to refresh parts.
+            </h4>
+        </div>
+
+    </main>
+    
+</body>
+</html>
