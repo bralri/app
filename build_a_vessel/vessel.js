@@ -98,12 +98,6 @@ function init() {
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
     orbitControls.maxDistance = 6;
     orbitControls.enablePan = false;
-    orbitControls.keys = {
-        LEFT: 'ArrowLeft', //left arrow
-        UP: 'ArrowUp', // up arrow
-        RIGHT: 'ArrowRight', // right arrow
-        BOTTOM: 'ArrowDown' // down arrow
-    }
 
     dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
     dragControls.addEventListener('dragstart', function() {
