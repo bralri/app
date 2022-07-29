@@ -13,10 +13,12 @@
             background-color: whitesmoke;
             font-family: 'Courier New', Courier, monospace;
         }
-        
         body {
             padding: 0;
             margin: 0;
+        }
+        h4 {
+            background-color: transparent;
         }
 
         #info {
@@ -29,10 +31,17 @@
             display:block;
             background-color: transparent;
 		}
-        h4 {
-            background-color: transparent;
-        }
 
+        #button {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            color: #242526;
+            z-index: 100;
+            display:block;
+            background-color: transparent;
+		}
         #download-glb {
             height: 40px;;
             width: 200px;
@@ -49,6 +58,11 @@
     <main>
 
         <div id="info">
+            <h4>
+                LMB+Drag parts to build your vessel / LMB+Drag background to rotate around / Scroll-wheel to zoom in + out
+            </h4>
+        </div>
+        <div id="button">
             <button id="download-glb">download vessel</button>
         </div>
         
