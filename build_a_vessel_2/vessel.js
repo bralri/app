@@ -32,7 +32,7 @@ function save(blob, fileName) {
 
 let modelArray = [];
 
-let scene, camera, renderer, controls;
+let scene, camera, renderer, dragControls, orbitControls;
 let ambientLight;
 let loader;
 let width = window.innerWidth;
@@ -95,7 +95,14 @@ function init() {
         )
     }
 
-    controls = new THREE.DragControls(modelArray, camera, renderer.domElement);
+    orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+    dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
+    dragControls.addEventListener('dragstart', function() {
+        orbitControls.enabled = false;
+    });
+    dragControls.addEventListener('dragend', function() {
+        orbitControls.enabled = true;
+    });
 }
 
 function animate() {
