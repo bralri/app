@@ -1,3 +1,35 @@
+//GLTFExporter
+const btn = document.getElementById('download-glb');
+btn.addEventListener('click', download);
+
+function download() {
+    const exporter = new THREE.GLTFExporter();
+    exporter.parse(
+        scene,
+        function(result) {
+            saveArrayBuffer(result, 'Vessel.glb')
+        },
+        {
+            binary: true
+        }
+    )
+}
+
+function saveArrayBuffer(buffer, fileName) {
+    save(new Blob([buffer], {type: 'application/octet-stream'}), fileName);
+}
+
+const link = document.createElement('a');
+document.body.appendChild(link);
+
+function save(blob, fileName) {
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+}
+
+//
+
 let modelArray = [];
 
 let scene, camera, renderer, controls;
@@ -5,6 +37,13 @@ let ambientLight;
 let loader;
 let width = window.innerWidth;
 let height = window.innerHeight;
+
+//
+
+init();
+animate();
+
+//
 
 function init() {
     scene = new THREE.Scene();
@@ -45,12 +84,13 @@ function init() {
 
                 model.position.x = (Math.random() - 0.5) * 8.5;
                 model.position.y = (Math.random() - 0.5) * 3;
-                model.position.z = (Math.random() - 0.5) * 1;
+                //model.position.z = (Math.random() - 0.5) * 1;
 
                 model.rotation.y = Math.random() * 4 * Math.PI;
                 
                 scene.add(model);
                 modelArray.push(model);
+                console.log(model.position.x, model.position.y, model.position.z);
             }
         )
     }
@@ -60,8 +100,9 @@ function init() {
 
 function animate() {
     requestAnimationFrame(animate);
-    renderer.render(scene, camera);
+    render();
 }
 
-init();
-animate();
+function render() {
+    renderer.render(scene, camera);
+}
