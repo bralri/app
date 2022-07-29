@@ -96,6 +96,9 @@ function init() {
     }
 
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
+    orbitControls.maxDistance = 6;
+    orbitControls.enablePan = false;
+
     dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
     dragControls.addEventListener('dragstart', function() {
         orbitControls.enabled = false;
