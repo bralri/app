@@ -5,27 +5,25 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
+body {
+    width: 100%;
+    text-align: center;
+    background-color: whitesmoke;
+}
+main {
+    width: 100%;
+    margin: auto;
+    z-index: 0;
+}
+
 a {
     color: #242526;
 }
 a:hover {
     color: gray;
 }
-
-body {
-    width: 100%;
-    text-align: center;
-    background-color: whitesmoke;
-}
-
 h3 {
     color: #242526;
-}
-
-main {
-    align-self: center;
-    justify-self: center;
-    height: 80vh;
 }
 
 .app-list {
