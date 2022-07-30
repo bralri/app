@@ -73,11 +73,11 @@ function init() {
     scene.add(ambientLight);
 
     loader = new THREE.GLTFLoader();
-    for (let i = 0; i < 17; i++) {
+    for (let i = 0; i < 19; i++) {
 
         loader.load(
 
-            '../../gltf/build_a_vessel_2/' + i + '.glb',
+            '../../gltf/build_a_vessel/3/' + i + '.glb',
 
             function(gltf) {
                 model = gltf.scene;

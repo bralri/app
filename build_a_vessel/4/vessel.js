@@ -77,7 +77,7 @@ function init() {
 
         loader.load(
 
-            '../../gltf/build_a_vessel_3/' + i + '.glb',
+            '../../gltf/build_a_vessel/4/' + i + '.glb',
 
             function(gltf) {
                 model = gltf.scene;
