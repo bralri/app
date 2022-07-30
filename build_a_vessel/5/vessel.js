@@ -99,6 +99,15 @@ function init() {
     orbitControls.enablePan = true;
     orbitControls.panSpeed = 0.5;
 
+    // reset controls
+    document.body.addEventListener('keydown', onDocumentKeyDown, false);
+    function onDocumentKeyDown(event) {
+        const keyCode = event.which;
+        if (keyCode == 82) {
+            orbitControls.reset();
+        }
+    }
+
     dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
     dragControls.addEventListener('dragstart', function() {
         orbitControls.enabled = false;
