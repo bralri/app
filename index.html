@@ -7,27 +7,44 @@
     <link rel="stylesheet" href="./css/style.css">
     <link rel="icon" type="image/png" href="../favicon-32x32.png">
 
+    <link rel="stylesheet" href="./css/loader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <title>Apps | Bryan Ridpath</title>
 </head>
 <body>
 
-    <header>
+    <div class="loader">
+        <div></div>
+    </div>
 
-    </header>
+    <div class="content">
+        <header>
 
-    <main>
-        <div class="app-list">
-            <!-- <h3><a href="/metamorph/" target="_blank">Metamorph</a></h3> -->
-            <h3><a href="/build_a_vessel/" target="_blank">Build a Vessel I</a></h3>
-            <h3><a href="/build_a_vessel_2/" target="_blank">Build a Vessel II</a></h3>
-        </div>
-    </main>
+        </header>
+    
+        <main>
+            <div class="app-list">
+                <!-- <h3><a href="/metamorph/" target="_blank">Metamorph</a></h3> -->
+                <h3><a href="/build_a_vessel/" >Build a Vessel I</a></h3>
+                <h3><a href="/build_a_vessel_2/" >Build a Vessel II</a></h3>
+                <h3><a href="/build_a_vessel_3/" >Build a Vessel III</a></h3>
+            </div>
+        </main>
+    
+        <footer>
+            <div class="footer">
+                <h4>&copy; <script>document.write(new Date().getFullYear())</script> <a href="https://www.bralri.net" target="_blank">Bryan Ridpath</a></h4>
+            </div>
+        </footer>
+    </div>
 
-    <footer>
-        <div class="footer">
-            <h4>&copy; <script>document.write(new Date().getFullYear())</script> <a href="https://www.bralri.net" target="_blank">Bryan Ridpath</a></h4>
-        </div>
-    </footer>
+    <script>
+        $(window).on('load',function(){
+            $(".loader").fadeOut(1500);
+            $(".content").fadeIn(1500);
+        });
+    </script>
 
 </body>
 </html>

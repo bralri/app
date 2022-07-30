@@ -90,14 +90,14 @@ function init() {
                 
                 scene.add(model);
                 modelArray.push(model);
-                console.log(model.position.x, model.position.y, model.position.z);
             }
         )
     }
 
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-    orbitControls.maxDistance = 6;
-    orbitControls.enablePan = false;
+    orbitControls.maxDistance = 10;
+    orbitControls.enablePan = true;
+    orbitControls.panSpeed = 0.5;
 
     dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
     dragControls.addEventListener('dragstart', function() {

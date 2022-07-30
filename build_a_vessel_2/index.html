@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="../favicon-32x32.png">
 
+    <link rel="stylesheet" href="../css/loader.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
     <title>Build a Vessel II | Bryan Ridpath</title>
     <style>
         * {
@@ -55,26 +58,39 @@
 </head>
 <body>
 
-    <main>
+    <div class="loader">
+        <div></div>
+    </div>
 
-        <div id="info">
-            <h4>
-                LMB+Drag parts to build your vessel / LMB+Drag background to rotate around / Scroll-wheel to zoom in + out
-            </h4>
-        </div>
-        <div id="button">
-            <button id="download-glb">download vessel</button>
-        </div>
-        
-        <script src="../js/three.min.js"></script>
-        <script src="../js/DragControls.js"></script>
-        <script src="../js/OrbitControls.js"></script>
-        <script src="../js/GLTFLoader.js"></script>
-        <script src="../js/GLTFExporter.js"></script>
+    <div class="content">
+        <main>
 
-        <script src="vessel.js"></script>
+            <div id="info">
+                <h4>
+                    LMB+Drag parts to build your vessel / LMB+Drag background to rotate / Shift+LMB+Drag background to pan / Scroll-wheel to zoom in + out
+                </h4>
+            </div>
+            <div id="button">
+                <button id="download-glb">download vessel</button>
+            </div>
+            
+            <script src="../js/three.min.js"></script>
+            <script src="../js/DragControls.js"></script>
+            <script src="../js/OrbitControls.js"></script>
+            <script src="../js/GLTFLoader.js"></script>
+            <script src="../js/GLTFExporter.js"></script>
 
-    </main>
+            <script src="vessel.js"></script>
+
+        </main>
+    </div>
+
+    <script>
+        $(window).on('load',function(){
+            $(".loader").fadeOut(1500);
+            $(".content").fadeIn(1500);
+        });
+    </script>
     
 </body>
 </html>
