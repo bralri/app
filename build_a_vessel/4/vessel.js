@@ -73,7 +73,7 @@ function init() {
     scene.add(ambientLight);
 
     loader = new THREE.GLTFLoader();
-    for (let i = 0; i < 19; i++) {
+    for (let i = 0; i < 16; i++) {
 
         loader.load(
 
@@ -98,6 +98,15 @@ function init() {
     orbitControls.maxDistance = 10;
     orbitControls.enablePan = true;
     orbitControls.panSpeed = 0.5;
+
+    // reset controls
+    document.body.addEventListener('keydown', onDocumentKeyDown, false);
+    function onDocumentKeyDown(event) {
+        const keyCode = event.which;
+        if (keyCode == 82) {
+            orbitControls.reset();
+        }
+    }
 
     dragControls = new THREE.DragControls(modelArray, camera, renderer.domElement);
     dragControls.addEventListener('dragstart', function() {

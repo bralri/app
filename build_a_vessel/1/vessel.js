@@ -106,6 +106,15 @@ function init() {
     dragControls.addEventListener('dragend', function() {
         orbitControls.enabled = true;
     });
+
+    // reset controls
+    document.body.addEventListener('keydown', onDocumentKeyDown, false);
+    function onDocumentKeyDown(event) {
+        const keyCode = event.which;
+        if (keyCode == 82) {
+            orbitControls.reset();
+        }
+    }
 }
 
 function animate() {
