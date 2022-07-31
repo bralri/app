@@ -7,7 +7,7 @@ function preload() {
   // metamorphosis = loadImage("../img/0.png")
 
   for (let i = 0; i < 26; i++) {
-    metaArray[i] = loadImage(`../img/${i}.png`)
+    metaArray[i] = loadImage(`../img/metamorph/${i}.png`)
   }
 }
 
