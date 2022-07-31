@@ -1,0 +1,31 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+    overflow: hidden;
+}
+
+body {
+    background-color: whitesmoke;
+}
+
+.links {
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #242526;
+    border-width: 2px;
+    padding: 20px;
+    width: 290px;
+    display: block;
+    font-size: 16px;
+}
+a {
+    text-decoration: none;
+    color: #242526;
+}
+a:hover {
+    color: gray;
+}
