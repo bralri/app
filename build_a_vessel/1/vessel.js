@@ -38,6 +38,9 @@ let loader;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
+let CAMERA_Z_POS_LANDSCAPE = 4.5;
+let CAMERA_Z_POS_PORTRAIT = 10;
+
 //
 
 init();
@@ -53,7 +56,7 @@ function init() {
         0.1,
         2000
     );
-    camera.position.z = 4.5;
+    camera.position.z = CAMERA_Z_POS_LANDSCAPE
 
     renderer = new THREE.WebGLRenderer({
         alpha: true,
@@ -68,7 +71,7 @@ function init() {
         camera.aspect = width/height;
         camera.updateProjectionMatrix();
     })
-
+    
     ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
 
@@ -84,7 +87,6 @@ function init() {
 
                 model.position.x = (Math.random() - 0.5) * 8.5;
                 model.position.y = (Math.random() - 0.5) * 3;
-                //model.position.z = (Math.random() - 0.5) * 1;
 
                 model.rotation.y = Math.random() * 4 * Math.PI;
                 
@@ -116,6 +118,8 @@ function init() {
         }
     }
 }
+
+
 
 function animate() {
     requestAnimationFrame(animate);
