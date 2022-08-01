@@ -39,7 +39,6 @@ let width = window.innerWidth;
 let height = window.innerHeight;
 
 let CAMERA_Z_POS_LANDSCAPE = 4.5;
-let CAMERA_Z_POS_PORTRAIT = 10;
 
 //
 
@@ -71,7 +70,7 @@ function init() {
         camera.aspect = width/height;
         camera.updateProjectionMatrix();
     })
-    
+
     ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
 
