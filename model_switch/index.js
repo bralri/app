@@ -20,6 +20,12 @@ let modelPaths = [
 let i = 0;
 let currentModel;
 
+let modelNmb = 1;
+let totalModelNmb = modelPaths.length;
+document.getElementById("total-model-number").innerHTML = totalModelNmb;
+
+let prevBtn, nextBtn;
+
 let ambientLight;
 let GLBLoader, manager;
 
@@ -29,7 +35,7 @@ let aspect = width/height;
 let fov = 75;
 let near = 0.1;
 let far = 2000;
-let cameraPOS = 2;
+let cameraPOS = 2.5;
 
 //
 
@@ -67,8 +73,8 @@ function init() {
     scene.add(ambientLight);
 
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-    orbitControls.maxDistance = 3;
-    orbitControls.minDistance = 1;
+    orbitControls.maxDistance = 3.5;
+    orbitControls.minDistance = 0.5;
     orbitControls.enablePan = false;
 
     loading_Manager();
@@ -85,16 +91,16 @@ function loading_Manager() {
 }
 
 function next_Button() {
-    const btn = document.getElementById('next-button');
-    btn.addEventListener('click', next);
+    nextBtn = document.getElementById('next-button');
+    nextBtn.addEventListener('click', next);
 
-    function load_Model(i) {
+    function load_Model(index) {
         if (currentModel) {
             scene.remove(currentModel);
         }
         GLBLoader = new THREE.GLTFLoader(manager);
         GLBLoader.load(
-            modelPaths[i], 
+            modelPaths[index], 
             
             function(gltf) {
                 currentModel = gltf.scene;
@@ -107,6 +113,15 @@ function next_Button() {
         i++;
         load_Model(i);
 
+        if (i == 14) {
+            nextBtn.style.visibility = "hidden";
+        }
+        
+        prevBtn.style.visibility = "visible";
+
+        modelNmb += 1;
+        document.getElementById("model-number").innerHTML = modelNmb;
+
         orbitControls.reset();
     }
 
@@ -114,16 +129,16 @@ function next_Button() {
 }
 
 function prev_Button() {
-    const btn = document.getElementById('prev-button');
-    btn.addEventListener('click', prev);
+    prevBtn = document.getElementById('prev-button');
+    prevBtn.addEventListener('click', prev);
 
-    function load_Model(i) {
+    function load_Model(index) {
         if (currentModel) {
             scene.remove(currentModel);
         }
         GLBLoader = new THREE.GLTFLoader(manager);
         GLBLoader.load(
-            modelPaths[i], 
+            modelPaths[index], 
             
             function(gltf) {
                 currentModel = gltf.scene;
@@ -134,6 +149,15 @@ function prev_Button() {
     function prev() {
         i--;
         load_Model(i);
+
+        if (i == 0) {
+            prevBtn.style.visibility = "hidden";
+        }
+
+        nextBtn.style.visibility = "visible";
+
+        modelNmb -= 1;
+        document.getElementById("model-number").innerHTML = modelNmb;
 
         orbitControls.reset();
     }
