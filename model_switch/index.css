@@ -1,0 +1,58 @@
+* {
+    overflow: hidden;
+    background-color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+    cursor: pointer;
+}
+body {
+    padding: 0;
+    margin: 0;
+}
+h4 {
+    background-color: transparent;
+    color: #242526;
+}
+
+.buttons {
+    width: 100%;
+}
+
+#next-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    text-align: center;
+    color: #242526;
+    z-index: 100;
+    display:block;
+    background-color: transparent;
+}
+#next-model {
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+}
+#next-model:hover {
+    color: gray;
+    cursor: pointer;
+}
+
+#prev-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    text-align: center;
+    color: #242526;
+    z-index: 100;
+    display:block;
+    background-color: transparent;
+}
+#prev-model {
+    height: 50px;
+    width: 50px;
+    background-color: transparent;
+}
+#prev-model:hover {
+    color: gray;
+    cursor: pointer;
+}
