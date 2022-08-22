@@ -118,8 +118,6 @@ function init() {
     }
 }
 
-
-
 function animate() {
     requestAnimationFrame(animate);
     render();
