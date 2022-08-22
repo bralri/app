@@ -66,8 +66,8 @@ body {
 
 .carousel-btn:hover,
 .carousel-btn:focus {
-    color: gray;
-    border-color: gray;
+    color: #242526;
+    border-color: #242526;
     opacity: 80%;
 }
 
@@ -80,4 +80,41 @@ body {
 }
 .carousel-btn.next {
     right: 10px;
+}
+
+/*
+*/
+
+#instructions-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    z-index: 100;
+    background-color: transparent;
+}
+.instructions_btn {
+    height: 60px;
+    width: 60px;
+    background-color: transparent;
+
+    font-size: 30px;
+    font-weight: bold;
+    color: whitesmoke;
+    border-color: whitesmoke;
+    border-style: solid;
+    opacity: 80%;
+    border-width: 4px;
+}
+.instructions_btn:hover {
+    color: #242526;
+    border-color: #242526;
+    cursor: pointer;
+}
+#modal {
+    background-color: whitesmoke;
+}
+.w3-container h5 {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
 }

@@ -6,12 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="./slider.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <script src="./slider.js" defer></script>
+    <script src="./modal.js" defer></script>
 
     <title>img_slider</title>
 </head>
 <body>
+
+    <div id="instructions-button">
+        <button 
+            class="instructions_btn" 
+            onclick="document.getElementById('id01').style.display='block'">
+                i
+        </button>
+    </div>
+    <div class="w3-container">
+        <div id="id01" class="w3-modal" style="padding: 300px 0px 0px;">
+            <div 
+                id="modal" 
+                class="w3-modal-content w3-center w3-animate-opacity" 
+                style="width: 600px; padding: 30px;">
+                    <div class="w3-container">
+                        <h5>Detailed screenshots of digital 3D models.</h5>
+                        <h5>3D models were made using photogrammetry,</h5>
+                        <h5>documenting wrapped and archived sculptures.</h5>
+                        <h5>These screenshots were printed and used to</h5>
+                        <h5>create the collages for "<a href="#">Metamorphosis v1</a>"</h5>
+                    </div>
+            </div>
+        </div>
+    </div>
+
     <section aria-label="Photo Gallery">
 
         <div class="carousel" data-carousel>
@@ -26,40 +53,40 @@
                     <img src="./img/1.png" alt="Abstract screenshot of a 3D digital model">
                 </li>
                 <li class="slide">
-                    <img src="./img/2.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/2.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/3.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/3.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/4.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/4.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/5.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/5.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/6.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/6.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/7.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/7.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/8.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/8.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/9.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/9.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/10.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/10.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/11.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/11.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/12.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/12.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
                 <li class="slide">
-                    <img src="./img/13.png" alt="Abstract screenshot of a 3D digital model">
+                    <img src="./img/13.png" alt="Abstract screenshot of a 3D digital model" loading="lazy">
                 </li>
             </ul>
         </div>
