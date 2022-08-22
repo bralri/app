@@ -64,8 +64,7 @@ body {
     padding: 0;
 }
 
-.carousel-btn:hover,
-.carousel-btn:focus {
+.carousel-btn:hover {
     color: #242526;
     border-color: #242526;
     opacity: 80%;
