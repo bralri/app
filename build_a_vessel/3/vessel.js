@@ -34,7 +34,7 @@ let modelArray = [];
 
 let scene, camera, renderer, dragControls, orbitControls;
 let ambientLight;
-let loader;
+let loader, manager;
 let width = window.innerWidth;
 let height = window.innerHeight;
 
@@ -72,7 +72,13 @@ function init() {
     ambientLight = new THREE.AmbientLight(0xffffff);
     scene.add(ambientLight);
 
-    loader = new THREE.GLTFLoader();
+    manager = new THREE.LoadingManager(() => {
+        const loadingScreen = document.getElementById('loading-screen');
+        loadingScreen.classList.add('fade-out');
+        loadingScreen.addEventListener('transitionend', onTransitionEnd);
+    });
+
+    loader = new THREE.GLTFLoader(manager);
     for (let i = 0; i < 19; i++) {
 
         loader.load(
@@ -124,4 +130,8 @@ function animate() {
 
 function render() {
     renderer.render(scene, camera);
+}
+
+function onTransitionEnd(transition) {
+    transition.target.remove();
 }

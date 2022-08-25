@@ -7,78 +7,84 @@
     <meta name="Description" content="Experimental creative coding applications by artist Bryan Ridpath">
     <link rel="icon" type="image/png" href="../../favicon-32x32.png">
 
-    <link rel="stylesheet" href="../../css/loader.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/window-loader.css">
+    <link rel="stylesheet" href="/css/info-button-alt.css">
+    <link rel="stylesheet" href="/css/back-button.css">
+    <link rel="stylesheet" href="/css/model-loader.css">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="../../css/vessel.css">
 
-    <meta property="og:image" content="https://app.bralri.net/img/og/og_bav_5.png">
+    <link rel="stylesheet" href="/css/vessel.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/info-modal.js" defer></script>
+
+    <meta property="og:image" content="https://app.bralri.net/img/og/og_bav_1.png">
     <meta property="og:image:type" content="image/png">
-
     <meta property="og:description" content="Experimental creative coding applications by artist Bryan Ridpath">
-    <meta property="og:sitename" content="app.bralri.netbuild_a_vessel/5/">
+    <meta property="og:sitename" content="app.bralri.net/build_a_vessel/1/">
 
+    <link rel="icon" type="image/png" href="../../favicon-32x32.png">
+
+    <meta name="Description" content="Experimental creative coding applications by artist Bryan Ridpath">
     <title>Build a Vessel V | Bryan Ridpath</title>
 </head>
 <body>
 
-    <div class="loader">
-        <div></div>
-    </div>
+    <section id="loading-screen">
 
-    <div class="content">
-        <main>
+        <div id="loader"></div>
+    
+    </section>
 
-            <div id="instructions-button">
-                <button class="instructions_btn" onclick="document.getElementById('id01').style.display='block'">
-                    instructions
-                </button>
-            </div>
-            <div class="w3-container">
-                <div id="id01" class="w3-modal" style="padding: 300px 0px 0px;">
-                    <div id="modal" class="w3-modal-content w3-center w3-animate-opacity" style="width: 600px; padding: 30px;">
-                        <div class="w3-container">
-                            <h5>[LMB]+[Drag] on the parts to build your vessel</h5>
-                            <h5>[LMB]+[Drag] on the background to rotate around</h5>
-                            <h5>[Shift]+[LMB]+[Drag] on the background to pan</h5>
-                            <h5>[Scroll-wheel] to zoom in + out</h5>
-                            <h5>[R] to reset the viewport</h5>
-                        </div>
+    <nav class="navbar" id="sticky">
+        <div id="info-button">
+            <button 
+                class="info" 
+                onclick="document.getElementById('id01').style.display='block'">
+                    i
+            </button>
+        </div>
+
+        <div id="back-button">
+            <button 
+                class="back" 
+                 onclick="history.back()"
+            >
+                <
+            </button>
+        </div>
+    </nav>
+    <div class="w3-container">
+        <div id="id01" class="w3-modal" style="padding: 350px 0px 0px;">
+            <div 
+                id="modal" 
+                class="w3-modal-content w3-center w3-animate-opacity" 
+                style="width: 600px; padding: 30px;">
+                    <div class="w3-container">
+                        <h5>[LMB]+[Drag] on the parts to build your vessel</h5>
+                        <h5>[LMB]+[Drag] on the background to rotate around</h5>
+                        <h5>[Shift]+[LMB]+[Drag] on the background to pan</h5>
+                        <h5>[Scroll-wheel] to zoom in + out</h5>
+                        <h5>[R] to reset the viewport</h5>
                     </div>
-                </div>
             </div>
-
-            <div id="download-button">
-                <button id="download-glb">
-                    download vessel
-                </button>
-            </div>
-            
-            <script src="../../js/three.min.js"></script>
-            <script src="../../js/DragControls.js"></script>
-            <script src="../../js/OrbitControls.js"></script>
-            <script src="../../js/GLTFLoader.js"></script>
-            <script src="../../js/GLTFExporter.js"></script>
-
-            <script src="vessel.js"></script>
-
-        </main>
+        </div>
     </div>
 
-    <script>
-        $(window).on('load',function(){
-            $(".loader").fadeOut(1500);
-            $(".content").fadeIn(1500);
-        });
+    <div id="download-button">
+        <button id="download-glb">
+            &#11123;
+        </button>
+    </div>
+    
+    <script src="../../js/three.min.js"></script>
+    <script src="../../js/DragControls.js"></script>
+    <script src="../../js/OrbitControls.js"></script>
+    <script src="../../js/GLTFLoader.js"></script>
+    <script src="../../js/GLTFExporter.js"></script>
 
-        const modal = document.getElementById('id01');
-        window.onclick = function(close) {
-            if (close.target == modal) {
-                modal.style.display = "none";
-            }
-        }
-    </script>
+    <script src="vessel.js"></script>
     
 </body>
 </html>
