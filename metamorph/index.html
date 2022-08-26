@@ -1,52 +1,65 @@
 <!DOCTYPE html>
-<html lang="">
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" href="../favicon-32x32.png">
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Metamorph | Bryan Ridpath</title>
-  <style>
-    * {
-      overflow: hidden;
-      font-family: 'Courier New', Courier, monospace;
-    }
-    
-    body {
-      padding: 0;
-      margin: 0;
-    }
+    <link rel="stylesheet" type="text/css" href="/css/index.css">
+    <link rel="stylesheet" type="text/css" href="/css/window-loader.css">
+    <link rel="stylesheet" type="text/css" href="/css/info-button-alt.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-    #info {
-            position: absolute;
-            top: 10px;
-            width: 100%;
-            text-align: center;
-            color: #242526;
-            z-index: 100;
-            display:block;
-            background-color: transparent;
-		}
-        h4 {
-            background-color: transparent;
-        }
-  </style>
-  <script src="../js/p5.min.js"></script>
-  <script src="sketch.js"></script>
-  <script src="bubble.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/info-modal.js" defer></script>
+
+    <meta property="og:image" content="https://app.bralri.net/img/og/og_index.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:description" content="Experimental creative coding applications by artist Bryan Ridpath">
+    <meta property="og:sitename" content="app.bralri.net">
+
+    <link rel="icon" type="image/png" href="../favicon-32x32.png">
+
+    <meta name="Description" content="Experimental creative coding applications by artist Bryan Ridpath">
+    <title>Metamorph | Bryan Ridpath</title>
 </head>
 
 <body>
-  <main>
 
-    <div id="info">
-      <h4>
-          Left+click on the images to change them.
-      </h4>
+  <div class="loader">
+    <div></div>
   </div>
 
-  </main>
+  <div class="content">
+
+    <nav class="navbar" id="sticky">
+        <div id="info-button">
+            <button 
+                class="info" 
+                onclick="document.getElementById('id01').style.display='block'">
+                    i
+            </button>
+        </div>
+    </nav>
+    <div class="w3-container">
+        <div id="id01" class="w3-modal" style="padding: 350px 0px 0px;">
+            <div 
+                id="modal" 
+                class="w3-modal-content w3-center w3-animate-opacity" 
+                style="width: 500px; padding: 30px;">
+                    <div class="w3-container">
+                        <h5>[LMB]+[Click] on the images to switch</h5>
+                    </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+
+  <script src="../js/p5.min.js"></script>
+  <script src="sketch.js"></script>
+  <script src="bubble.js"></script>
+  <script src="/js/window-load.js"></script>
 </body>
 
 </html>
