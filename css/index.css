@@ -9,6 +9,17 @@ HTML {
     font-family: 'Courier New', Courier, monospace;
 }
 
+nav {
+    z-index: 100;
+}
+
+#sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+}
+
+
 body {
     background-color: white;
     cursor: default;
