@@ -8,23 +8,7 @@ let modelPaths = [
     './models/1.glb', 
     './models/2.glb', 
     './models/3.glb', 
-    './models/4.glb', 
-    './models/5.glb', 
-    './models/6.glb', 
-    './models/7.glb', 
-    './models/8.glb', 
-    './models/9.glb', 
-    './models/10.glb', 
-    './models/11.glb', 
-    './models/12.glb', 
-    './models/13.glb', 
-    './models/14.glb', 
-    './models/15.glb',
-    './models/16.glb',
-    './models/17.glb',
-    './models/18.glb',
-    './models/19.glb',
-    './models/20.glb'
+    './models/4.glb'
 ];
 let i = 0;
 let currentModel;
@@ -44,7 +28,7 @@ let aspect = width/height;
 let fov = 75;
 let near = 0.1;
 let far = 2000;
-let cameraPOS = 2.5;
+let cameraPOS = 5;
 
 //
 
@@ -82,7 +66,7 @@ function init() {
     scene.add(ambientLight);
 
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
-    orbitControls.maxDistance = 3.5;
+    orbitControls.maxDistance = 8;
     orbitControls.minDistance = 0.5;
     orbitControls.enablePan = false;
 
@@ -122,7 +106,7 @@ function next_Button() {
         i++;
         load_Model(i);
 
-        if (i == 20) {
+        if (i == 4) {
             nextBtn.style.visibility = "hidden";
         }
         
@@ -176,9 +160,9 @@ function update() {
     requestAnimationFrame(update);
     render();
 
-    if (currentModel) {
-        currentModel.rotation.y += 0.002;
-    }
+    // if (currentModel) {
+    //     currentModel.rotation.y += 0.002;
+    // }
 }
 
 function render() {

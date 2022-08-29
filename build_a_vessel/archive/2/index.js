@@ -12,7 +12,8 @@ let modelPaths = [
     './models/5.glb', 
     './models/6.glb', 
     './models/7.glb', 
-    './models/8.glb'
+    './models/8.glb',
+    './models/9.glb'
 ];
 let i = 0;
 let currentModel;
@@ -110,7 +111,7 @@ function next_Button() {
         i++;
         load_Model(i);
 
-        if (i == 8) {
+        if (i == 9) {
             nextBtn.style.visibility = "hidden";
         }
         

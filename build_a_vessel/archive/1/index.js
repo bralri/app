@@ -4,7 +4,15 @@ const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
 let modelPaths = [
-    './models/0.glb'
+    './models/0.glb',
+    './models/1.glb',
+    './models/2.glb',
+    './models/3.glb',
+    './models/4.glb',
+    './models/5.glb',
+    './models/6.glb',
+    './models/7.glb',
+    './models/8.glb'
 ];
 let i = 0;
 let currentModel;
@@ -102,7 +110,7 @@ function next_Button() {
         i++;
         load_Model(i);
 
-        if (i == 0) {
+        if (i == 8) {
             nextBtn.style.visibility = "hidden";
         }
         
@@ -143,7 +151,7 @@ function prev_Button() {
             prevBtn.style.visibility = "hidden";
         }
 
-        //nextBtn.style.visibility = "visible";
+        nextBtn.style.visibility = "visible";
 
         modelNmb -= 1;
         document.getElementById("model-number").innerHTML = modelNmb;
