@@ -1,8 +1,5 @@
 let scene, camera, renderer, orbitControls;
 
-const raycaster = new THREE.Raycaster();
-const mouse = new THREE.Vector2();
-
 let modelPaths = [
     './models/0.glb',
     './models/1.glb',
@@ -14,16 +11,13 @@ let modelPaths = [
     './models/7.glb',
     './models/8.glb'
 ];
+
 let i = 0;
 let currentModel;
-
 let modelNmb = 1;
 let totalModelNmb = modelPaths.length;
 document.getElementById("total-model-number").innerHTML = totalModelNmb;
-
 let prevBtn, nextBtn;
-
-let ambientLight;
 let GLBLoader, manager;
 
 let width = window.innerWidth;
@@ -38,6 +32,8 @@ let cameraPOS = 5;
 
 init();
 update();
+
+//
 
 function init() {
     scene = new THREE.Scene();
@@ -66,9 +62,6 @@ function init() {
         camera.updateProjectionMatrix();
     })
 
-    ambientLight = new THREE.AmbientLight(0x404040, 1);
-    scene.add(ambientLight);
-
     orbitControls = new THREE.OrbitControls(camera, renderer.domElement);
     orbitControls.maxDistance = 10;
     orbitControls.minDistance = 0.5;
@@ -81,10 +74,14 @@ function init() {
 
 function loading_Manager() {
     manager = new THREE.LoadingManager(() => {
-        const loadingScreen = document.getElementById('loading-screen');
-        loadingScreen.classList.add('fade-out');
-        loadingScreen.addEventListener('transitionend', onTransitionEnd);
+        loading_Anim();
     });
+}
+
+function loading_Anim() {
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.classList.add('fade-out');
+    loadingScreen.addEventListener('transitionend', onTransitionEnd);
 }
 
 function next_Button() {
@@ -163,10 +160,6 @@ function prev_Button() {
 function update() {
     requestAnimationFrame(update);
     render();
-
-    // if (currentModel) {
-    //     currentModel.rotation.y += 0.002;
-    // }
 }
 
 function render() {
